@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 All rights reserved
+  ~ Author: LvFan
+  ~ Project：MYCOURSE
+  ~ File:login.html
+  ~ Date:18-6-5 下午3:07
+  -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用户登录</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+   
+
+</head>
+<body style="background-color: #E2E2E2;">
+    <div class="container">
+        <div class="row text-center " style="padding-top:100px;">
+            <div class="col-md-12">
+                <h1>移动课堂</h1>
+            </div>
+        </div>
+         <div class="row ">
+               
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                           
+                            <div class="panel-body">
+                                <form role="form">
+                                    <hr />
+                                    <h5>登录信息</h5>
+                                       <br />
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+                                            <input type="text"  class="form-control" placeholder="此处输入你的教师号或学号 "  name="number" id="name"/>
+                                     </div>
+                                         <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" class="form-control"  placeholder="此处输入你的密码" name="password" id="password" onkeydown="KeyDown()"/>
+                                        </div>
+                                    <div class="form-group">
+                                            <input type="radio" name="role" id="radio" value="student" checked="checked" onclick="getValue()">学生登录
+                                            <input type="radio" name="role" id="radio2" value="teacher" onclick="getValue()">教师登录<span class="pull-right">
+                   <a href="#" >忘记密码？ </a>
+            </span>
+                                  </div>
+
+                                     <!--<a href="login.html" class="btn btn-primary ">立即登录</a>-->
+                                    <input id="loginbtn" value="立即登录" class="btn btn-primary " style="font-size:20px" type="button" onclick="check()">
+                                    <hr />
+                                    未注册 ?<span>  </span><a href="resignStu.html" class="btn btn-primary ">学生注册</a><span>  </span>或<span>  </span><a href="resignTea.html" class="btn btn-primary ">教师注册</a>
+                                </form>
+                            </div>
+                           
+                        </div>
+                
+                
+        </div>
+    </div>
+      <script>
+          function getValue(){
+              // method 1
+              var radio = document.getElementsByName("role");
+              for (var i=0; i<radio.length; i++) {
+                  if (radio[i].checked) {
+                      return radio[i].value;
+                  }
+              }
+          }
+
+
+          function check(){
+              var userid=document.getElementById("name").value;
+              var userpassword=document.getElementById("password").value;
+              if(userid=="") {
+                  alert("请输入用户名！");
+              }else if (userpassword=="") {
+                  alert("请输入密码！");
+              }else {
+                  if (getValue()==="student") {
+                      var url = "loginStuServlet?stuNumber=" + userid + "&password=" + userpassword;
+                      window.self.location = url;
+                  }
+                  else {
+                      url = "loginTeaServlet?teaNumber=" + userid + "&password=" + userpassword;
+                          window.self.location=url;
+                  }
+              }
+          }
+          function KeyDown()
+          {
+              if (event.keyCode == 13)
+              {
+                  event.returnValue=false;
+                  event.cancel = true;
+                  document.getElementById("loginbtn").click();
+              }
+          }
+
+      </script>
+</body>
+</html>

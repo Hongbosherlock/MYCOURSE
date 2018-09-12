@@ -1,0 +1,274 @@
+
+<!--
+  ~ Copyright (c) 2018 All rights reserved
+  ~ Author: LvFan
+  ~ Project：MYCOURSE
+  ~ File:resignStu.html
+  ~ Date:18-6-6 下午11:14
+  -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>学生注册</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://cdn.pigai.org//res/javascript/jquery-1.3.2.min.js" type="text/javascript" language="javascript"></script>
+    <script type="text/javascript" src="https://cdn.pigai.org//res/javascript/reg.js?d=20170327"></script>
+    <script type="text/javascript" src="https://cdn.pigai.org//res/javascript/school.js?d=2014-11-14"></script>
+    <script src="https://cdn.pigai.org//res/javascript/float.0.1.js?d=20170119" type="text/javascript" language="javascript"></script>
+    <script src="https://cdn.pigai.org//res/javascript/emailAutoComplete.js?d=2015-11-4" type="text/javascript" language="javascript"></script>
+    <link href="https://cdn.pigai.org//res/css/reg_new.css?d=20161124"  rel="stylesheet" type="text/css" />
+    <link href="https://cdn.pigai.org//res/css/emailAutoComplete.css?d=2015-11-4"  rel="stylesheet" type="text/css" />
+</head>
+<body style="background-color: #E2E2E2;">
+<div id="container">
+    <div id ="header">
+        <!--<a href="/index.php" id="logo"></a>-->
+    </div>
+    <div id="main">
+        <div id="t_banner" >
+            <div  id="t_banner2"></div>
+            <div style="position:absolute;top:13px;right:100px;z-index:3;">
+                <!--<a href="/index.php?a=reg">教师注册</a>-->
+            </div>
+            <div id="t_link">
+
+            </div>
+        </div>
+
+        <!-- <form action="/index.php?a=regpost" method="post" id="reg_stu" > -->
+        <form  method="post" >
+            <div id="reg_top">
+                <div id="reg_l" style="height:300px"></div>
+                <div id="reg_m" style="width:744px;height:250px">
+                    <div id="reg_m_title_s"><a href="resignTea.html">注册教师帐号</a></div>
+
+                    <div class="reg_in" style="padding-top:50px;"  >
+                        <table width="560" cellspacing="0">
+                            <tr>
+                                <td class="tb_l">您的学号：</td>
+                                <td class="tb_m"><input name="stunum" type="number" id="xuehao"></td>
+                                <td class="tb_r"><span class="notice">请输入你的有效学号</span></td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td class="tb_l">设置密码：</td>
+                                <td class="tb_m">
+                                    <input type="password" name="password" id="password"  content="info" autocomplete="off"/></td>
+                                <td class="tb_r"><span class="notice">密码由6－20位英文字母，数字或特殊符号组成。</span></td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="tb_l">再输入一遍密码：</td>
+                                <td class="tb_m"><input type="password" name="password2" id="password2" autocomplete="off" /></td>
+                                <td class="tb_r"><span class="notice">请再次输入您的密码</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td width="140" class="tb_l">您的邮箱：</td>
+                                <td width="242" class="tb_m emailContainer">
+                                    <input NAME="email" type="text" class="inputEmail" id="email" value="" maxlength="13" content="info"/>
+                                </td>
+                                <td width="169" class="tb_r">忘记密码的时候，通过邮箱找回密码；</td>
+                                <td width="53"></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <div id="reg_r" style="height:260px"></div>
+                <div class="clear"></div>
+            </div>
+            <div style="text-align:left;">
+                <div id="reg_bottom">
+                    <div id="reg_info">
+                        <div class="reg_bar">
+                            <h3>请填写个人信息</h3><i class="arrow_d"></i>
+                        </div>
+                        <div class="reg_in">
+                            <table cellspacing="0">
+
+                                <tr>
+                                    <td class="tb_l">您的姓名：</td>
+                                    <td class="tb_m"><input type="text" name="truename" id="s_truename" value="" /></td>
+                                    <td class="tb_r tb_r1"><span class="notice">请填写你的真实，以方便课程讨论。</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="tb_l">性别：</td>
+                                    <td class="tb_m">
+                                        <label for="sex1"><INPUT TYPE="radio" name="sex"  value="1" style="width:20px;border:0px;" id="sex1" checked="checked" onclick="getValue()"/>男</label>
+                                        <label for="sex2"><INPUT TYPE="radio" name="sex"  value="2" style="width:20px;border:0px;" id="sex2" onclick="getValue()" />女</label>
+                                    </td>
+                                    <td class="tb_r tb_r1"><span class="notice"></span></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="tb_l">您的学院：</td>
+                                    <td class="tb_m"><input type="text" name="college" id="college" /></td>
+                                    <td class="tb_r tb_r1"><span class="notice">学院名称，比如：计算机学院</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="tb_l">您的年级：</td>
+                                    <td class="tb_m"><input name="grade" type="number" id="grade"></td>
+                                    <td class="tb_r"><span class="notice">请输入你的年级，如：2016级</span></td>
+
+                                </tr>
+                                <tr>
+                                    <td class="tb_l">您所在学校：</td>
+                                    <td class="tb_m">
+                                        <input type="text" name="school" id="s_school" value="" autocomplete="off" />
+                                        <div class="school_search"></div>
+                                    </td>
+                                    <td class="tb_r tb_r1"><span class="notice">请填写你的学校名称</span></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                    <div id="reg_code">
+                        <div class="reg_bar">
+                            <h3>立即注册</h3></div>
+                        <div class="reg_in">
+                            <table cellspacing="0">
+                                <tr>
+                                    <td class="tb_l"></td>
+                                    <!--<td class="tb_m">                                    		-->
+                                    <!--<a href="index.html" class="btn btn-primary " style="font-size:20px">立即注册</a>-->
+                                    <input value="注册" class="btn btn-primary " style="font-size:20px" type="button" onclick="register()">
+                                    <input value="返回" class="btn btn-primary " style="font-size:20px" type="button" onclick="window.location='login.html'">
+
+                                    <td class="tb_r"><input type="hidden" name="im" value="student" /></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div><!-- end reg_bottom -->
+
+            </div>
+            <input type="hidden" name="checkhash" value="" id="checkhash" />
+        </form>
+    </div><!--main end-->
+
+    <div id="infoSay" class="s_pos">
+        <div id="infoSayTxt"></div>
+    </div>
+
+    <div id="footer">
+
+        <!--<script src="/res/javascript/float.0.1.nei.js?d=20170119" type="text/javascript" language="javascript"></script>-->
+
+        <script>
+
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?3f46f9c09663bf0ac2abdeeb95c7e516";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+
+        </script>
+    </div>
+</div>
+</body>
+
+
+
+
+<script>
+    function getValue(){
+        // method 1
+        var radio = document.getElementsByName('sex');
+        for (var i=0; i<radio.length; i++) {
+            if (radio[i].checked) {
+                return radio[i].value;
+
+            }
+        }
+    }
+    function register() {
+        var userId=document.getElementById("xuehao").value;
+        var userPassword = document.getElementById("password").value;
+        var userSecondPassword=document.getElementById("password2").value;
+        var userName=document.getElementById("s_truename").value;
+        var email=document.getElementById("email").value;
+        var college=document.getElementById("college").value;
+        var school=document.getElementById("s_school").value;
+        var grade=document.getElementById("grade").value;
+        var userGender=getValue();
+
+
+        if(email==""){
+            alert("邮箱不能为空");
+            return;
+        }
+        if(userPassword==""){
+            alert("用户密码不能为空");
+            return;
+        }
+        if(userSecondPassword==""){
+            alert("请再次输入密码");
+            return;
+        }
+        if(userId==""){
+            alert("学号不能为空");
+            return;
+        }
+
+        if(userName==""){
+            alert("请输姓名");
+            return;
+        }
+
+        if(college==""){
+            alert("学院不能为空");
+            return;
+        }
+        if(grade==""){
+            alert("年级不能为空");
+            return;
+        }
+        if(school==""){
+            alert("学校不能为空");
+            return;
+        }
+        if(userPassword==userSecondPassword) {
+
+            // var datetime = getNowFormatDate();
+            var url = "resignStuServlet?truename=" + userName + "&stuNumber=" + userId + "&sex=" + userGender + "&password=" + userPassword+"&email="+email+"&school="+school+"&college="+college+"&grade="+grade;
+
+            window.location = url;
+            alert(("注册成功！"))
+        }else {
+            alert("两次输入的密码不相同！请检查！");
+            return;
+        }
+
+
+
+    }
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+        return currentdate;
+    }
+</script>
+</html>
